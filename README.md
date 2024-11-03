@@ -34,7 +34,7 @@ Para rodar o backend com Docker, siga os passos abaixo:
 
 1. Navegue até a pasta do backend:
    ```bash
-   cd backend
+   cd gestaotalentos
    ```
 
 2. Execute o comando para construir e iniciar o contêiner:
@@ -46,7 +46,7 @@ Para rodar o backend com Docker, siga os passos abaixo:
 
 ## Variáveis de Ambiente
 
-O backend pode requerer variáveis de ambiente, como configurações do banco de dados e JWT. Configure um arquivo `.env` com as variáveis necessárias, por exemplo:
+O backend pode requerer variáveis de ambiente, como configurações do banco de dados e JWT. Configure um arquivo `.env` com as variáveis necessárias, por exemplo: (Já deixei o repo com as variáveis)
 
 ```plaintext
 DB_HOST=db
