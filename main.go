@@ -5,14 +5,22 @@ import (
     "gestaotalentos/routes"
     "log"
     "net/http"
+
     "github.com/joho/godotenv"
+    httpSwagger "github.com/swaggo/http-swagger"
+    _ "gestaotalentos/docs"
 )
 
+// @title API de Gestão de Talentos
+// @version 1.0
+// @description API para gerenciar candidatos, autenticação e autorização.
+// @host localhost:8080
+// @BasePath /
 func main() {
     if err := godotenv.Load(); err != nil {
         log.Fatal("Erro ao carregar o arquivo .env")
     }
-    
+
     config.ConnectDB()
 
     router := routes.SetupRoutes()
@@ -31,6 +39,8 @@ func main() {
             h.ServeHTTP(w, r)
         })
     }
+
+    router.PathPrefix("/swagger/").Handler(httpSwagger.WrapHandler)
 
     log.Println("API rodando na porta 8080")
     log.Fatal(http.ListenAndServe(":8080", corsHandler(router)))
